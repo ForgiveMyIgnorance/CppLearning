@@ -1,3 +1,4 @@
 ## this关键字
 类似于python中self
-xiugai
+# 返回类本身
+# 返回对象属性
