@@ -8,3 +8,30 @@
 6. **配置器**（allocators）。负责空间配置与管理。配置器是一个实现了动态空间配置、空间管理、空间释放的class template。
 # 六大组件的交互关系
 Container通过Allocator取得数据储存空间，Algorithm通过Iterator存取Container内容，Functor可以协助Algorithm完成不同的策略变化，Adapter可以修饰或者套接Functor。
+# 同时使用六大组件
+```C++
+#include<vector>
+#include<algorithm>
+#include<iostream>
+#include<functional>
+
+using namespace std;
+
+//同时使用六大组件
+//实现统计数组中不大于40的元素个数
+int main()
+{
+	int ia[6] = { 27, 210, 12, 47, 109, 83 };
+
+	//容器与空间配置器
+	vector<int, allocator<int>> vi(ia, ia + 6);
+
+	//使用了算法count_if()
+	//less<int>()仿函数
+	//函数适配器not1，bind2nd
+	//迭代器vi.begin()，与vi.end()
+	cout << count_if(vi.begin(), vi.end(), not1(bind2nd(less<int>(), 40)));
+
+	return 0;
+}
+```
