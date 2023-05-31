@@ -35,3 +35,63 @@ int main()
 	return 0;
 }
 ```
+# range-based **for** statement
+C++11
+遍历容器元素
+```C++
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+	for (int i : {2, 3, 4, 5, 6, 7})
+	{
+		cout << i << endl;
+	}
+
+	return 0;
+}
+```
+可以在大括号里放元素形成一个聚合体，或者不使用大括号而是STL的任何容器。
+```C++
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int main()
+{
+	vector<double> vec;
+	vec.push_back(3.14);
+
+	//使用了关键字auto来代替vector<double>::iterator::value_type = double
+	for (auto& elem : vec)
+	{
+		elem *= 3;
+	}
+
+	return 0;
+}
+```
+# 关键字auto
+*C++11新特性*
+```C++
+#include<iostream>
+#include<list>
+//#include<algorithm>
+
+using namespace std;
+
+int main()
+{
+	list<string> c;
+	string target;
+	
+	list<string>::iterator ite;
+	ite = ::find(c.begin(), c.end(), target);
+	//上下完全等价
+	auto ite = ::find(c.begin(), c.end(), target);
+
+	return 0;
+}
+```
