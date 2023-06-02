@@ -57,7 +57,7 @@ splice(pos,list,ite)
 splice(pos,list,first,last)
 //将[first,last)内的所有元素接合于pos所指元素之前，pos和【first，last）可指向同一个list，但pos不能位于【first，last）之内
 
-merge
+list1.merge(list2)//将list2合并到list1身上。前提是两个list的内容必须先经过递增操作
 reverse
 sort
 ```
