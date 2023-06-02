@@ -43,9 +43,11 @@ pop_back
 clear
 remove(value)//将数值为value的所有元素移除
 unique()//移除“连续而相同的元素”至剩余一个
+
 //（不公开）
 transfer(pos,first,last)//将[first, last)之间的所有元素移动至pos之前
 //是下面函数的基础
+
 splice(pos,list)//将某连续范围的元素从一个list移动到另一个的某个节点之前
 splice(pos,list,ite)//将ite所指元素接合于pos之前，pos和i可指向同一个list
 splice(pos,list,first,last)//将[first,last)内的所有元素接合于pos所指元素之前，pos和【first，last）可指向同一个list，但pos不能位于【first，last）之内
